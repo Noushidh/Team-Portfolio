@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,30 +55,18 @@ export default function ContactSection() {
               Let's<br />Create
             </h2>
           </div>
-          <div className="reveal glass-panel rounded-sm p-8 md:p-10">
-            <div className="space-y-6">
-              {[
-                { label: 'Email', value: 'hello@studio.com' },
-                { label: 'Phone', value: '+1 (555) 000-0000' },
-                { label: 'Location', value: 'New York, NY' },
-              ].map((item) => (
-                <div key={item.label} className="border-b border-foreground/[0.04] pb-4 group cursor-pointer">
-                  <span className="text-label text-muted-foreground block mb-1">{item.label}</span>
-                  <span className="font-body text-foreground text-lg group-hover:text-accent transition-colors duration-300">{item.value}</span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-10 flex gap-8">
-              {['Twitter', 'Instagram', 'Dribbble'].map((social) => (
-                <a
-                  key={social}
-                  href="#"
-                  className="magnetic text-label text-muted-foreground hover:text-accent transition-colors duration-300 inline-block"
-                >
-                  {social}
-                </a>
-              ))}
-            </div>
+          <div className="reveal flex flex-col items-start">
+            <p className="text-muted-foreground text-lg mb-8 max-w-md leading-relaxed">
+              Have a project in mind? We'd love to hear about it. Let's create something remarkable together.
+            </p>
+            <Link to="/contact">
+              <button className="magnetic group relative px-10 py-5 bg-transparent border border-accent/30 rounded-full overflow-hidden transition-all duration-500 hover:border-accent">
+                <span className="relative z-10 text-label text-foreground group-hover:text-background transition-colors duration-500 uppercase tracking-[0.2em]">
+                  Let's Connect
+                </span>
+                <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-expo" />
+              </button>
+            </Link>
           </div>
         </div>
 
